@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --white: #fff;
+  --black: #000;
+  --gray: #484848;
+  --lightgray: #939393;
+  --light: rgb(247, 247, 247);
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -17,4 +25,156 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+/*Configuraciones Generales*/
+
+body::-webkit-scrollbar {
+  width: 5px;
+  background-color: transparent;
+}
+
+body::-webkit-scrollbar-track {
+  border-radius: 2px;
+  background-color: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #666b7e;
+  border-radius: 8px;
+}
+
+/**********
+Preloader
+**********/
+#preloader::before {
+  content: "";
+  position: fixed;
+  background: url(https://i.ibb.co/DbkWm62/logo.png) var(--white);
+  background-size: 250px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  z-index: 2001;
+  animation-duration: 1s;
+  animation-name: slidein;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  top: 0;
+}
+.hidden::before {
+  opacity: 0;
+  transition: 1s;
+  visibility: hidden;
+}
+@keyframes slidein {
+  from {
+    background-size: 250px;
+  }
+  to {
+    background-size: 270px;
+  }
+}
+
+/***********
+Slider
+***********/
+
+.slider {
+  width: 90%;
+  margin: auto;
+  margin-top: 35px;
+  overflow: hidden;
+  align-items: center;
+}
+
+.slider ul {
+  padding: 0;
+  display: flex;
+  width: 400%;
+  animation: cambio 20s infinite;
+}
+
+.slider li {
+  width: 100%;
+  list-style: none;
+}
+
+.slider img {
+  width: 50%;
+}
+
+/*************
+Keyframes
+************/
+@keyframes cambio {
+  0% {
+    margin-left: 0;
+  }
+  20% {
+    margin-left: 0;
+  }
+  35% {
+    margin-left: -100%;
+  }
+  50% {
+    margin-left: -100%;
+  }
+  65% {
+    margin-left: -200%;
+  }
+  70% {
+    margin-left: -200%;
+  }
+  85% {
+    margin-left: -300%;
+  }
+  90% {
+    margin-left: -300%;
+  }
+}
+
+/*********
+CARD
+*********/
+.card {
+  @apply mb-5 block rounded-lg border border-gray-200 shadow-md;
+}
+
+.primary-button {
+  @apply rounded bg-blue-500 py-2 px-4 shadow outline-none hover:bg-blue-600 active:bg-blue-700;
+}
+
+/********
+REGISTER & LOGIN
+*********/
+input,
+select,
+textarea {
+  @apply rounded border p-2 outline-none ring-indigo-300 focus:ring;
+}
+
+/*********
+NAVBAR
+*********/
+.dropdown-link {
+  @apply flex p-2 hover:bg-gray-200;
+}
+/*********
+Button Top
+********/
+.buttonTop {
+  border: 1px solid var(--gray);
+  background-color: var(--gray);
+  color: var(--white);
+  padding: 10px;
+  border-radius: 5px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 20px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
